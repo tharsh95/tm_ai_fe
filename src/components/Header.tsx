@@ -55,7 +55,7 @@ export const Header = ({ setSidebarOpen, onSearch }: HeaderProps) => {
         <div className="flex items-center text-sm text-gray-500">
           <a href="#" className="hover:text-gray-700 whitespace-nowrap">Dashboard</a>
           <span className="mx-2">→</span>
-          <a href="#" className="hover:text-gray-700 whitespace-nowrap">TodoShnik</a>
+          <a href="#" className="hover:text-gray-700 whitespace-nowrap">Rucksa</a>
         </div>
       </div>
     </header>

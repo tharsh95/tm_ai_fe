@@ -54,8 +54,6 @@ const ProjectInfo = () => {
 
             <div className="mt-4">
               <p className="text-sm text-gray-600">
-                Менеджер для внутреннего пользования, предназначенный для учета
-                статистики и трекинга задач.
               </p>
             </div>
           </div>
