@@ -13,7 +13,7 @@ const ProjectInfo = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       const { data } = await axios.get(
-        "http://localhost:8000/tasks/participants"
+        `${import.meta.env.VITE_API_URL}/tasks/participants`
       );
 
       setParticipants(data.participants);

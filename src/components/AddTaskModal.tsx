@@ -10,7 +10,7 @@ export const AddTaskModal = ({ newTask, setNewTask, onClose, onAddTask,edit }: A
     }
 
     try {
-      const response = await axios.post(`http://localhost:8000/tasks/generate-description?brief=${newTask.brief || ''}`);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/tasks/generate-description?brief=${newTask.brief || ''}`);
       setNewTask(prev => ({
         ...prev,
         description: response.data.description,

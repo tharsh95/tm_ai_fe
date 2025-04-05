@@ -20,7 +20,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onClick, onEdit, onDel
   const handleDelete = async (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card click event
     try {
-      await axios.delete(`http://localhost:8000/tasks/${task.id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${task.id}`);
       onDelete(task.id);
     } catch (error) {
       console.error('Error deleting task:', error);

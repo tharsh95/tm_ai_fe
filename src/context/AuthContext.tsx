@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           
           // Validate token with backend
           try {
-            await axios.get("http://localhost:8000/auth/validate");
+            await axios.get(`${import.meta.env.VITE_API_URL}/auth/validate`);
             // If validation succeeds, set auth state
             setToken(storedToken);
             setUser(JSON.parse(storedUser));
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     password: string
   ): Promise<{ status: boolean; detail?: string }> => {
     try {
-      const { data } = await axios.post("http://localhost:8000/auth/login", {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         email,
         password,
       });
@@ -124,7 +124,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     password: string
   ): Promise<{ status: boolean; detail?: string }> => {
     try {
-      const { data } = await axios.post("http://localhost:8000/auth/register", {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, {
         name,
         email,
         password,

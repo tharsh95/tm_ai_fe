@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8000/tasks');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/tasks`);
 
         setTasks(data);
       }
@@ -50,7 +50,7 @@ function App() {
     setSearchQuery(query);
     if (query.trim()) {
       try {
-        const { data } = await axios.get(`http://localhost:8000/tasks/search?title=${query}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/tasks/search?title=${query}`);
         setSearchResults(data);
       } catch (error) {
         console.error('Search error:', error);
@@ -83,7 +83,7 @@ function App() {
     try {
       if (selectedTask) {
         // Update existing task
-        const { data: updatedTask } = await axios.put(`http://localhost:8000/tasks/${selectedTask.id}`, taskPayload);
+        const { data: updatedTask } = await axios.put(`${import.meta.env.VITE_API_URL}/tasks/${selectedTask.id}`, taskPayload);
         // Update the task in the correct column
         setTasks(prev => ({
           ...prev,
@@ -97,7 +97,7 @@ function App() {
         }));
       } else {
         // Create new task
-        const { data: createdTask } = await axios.post('http://localhost:8000/tasks', taskPayload);
+        const { data: createdTask } = await axios.post(`${import.meta.env.VITE_API_URL}/tasks`, taskPayload);
         
         setTasks(prev => ({
           ...prev,
@@ -135,7 +135,7 @@ function App() {
   
     try {
       // Call API to update task status
-      await axios.put(`http://localhost:8000/tasks/${taskId}`, {
+      await axios.put(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`, {
         status: toColumn,
         ...taskWithoutStatus
       });
